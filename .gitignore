@@ -1,0 +1,20 @@
+# Variaveis de ambiente (cada maquina tem a sua)
+.env
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+
+# Dependencias
+node_modules/
+vendor/
+
+# Logs e temporarios
+*.log
+tmp/
