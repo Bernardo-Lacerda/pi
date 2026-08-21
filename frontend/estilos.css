@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=Karla:wght@400;500;600&display=swap');
+
+:root {
+    --primaria: #26352D;
+    --secundaria: #53665A;
+    --fundo: #F1EFE5;
+    --superficie: #FAF9F3;
+    --texto: #20251F;
+    --suave: #777D73;
+    --destaque: #C58B55;
+}
+
+body {
+    background: var(--fundo);
+    color: var(--texto);
+    font-family: 'Karla', sans-serif;
+}
+
+.titulo {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    letter-spacing: 0;
+}
+
+.titulo span,
+.numero {
+    color: var(--destaque);
+}
+
+.navbar-brand {
+    color: var(--primaria);
+    font-size: 1.6rem;
+}
+
+.navbar>.container,
+.navbar .d-flex {
+    flex-wrap: wrap;
+    gap: .75rem;
+}
+
+.nav-link,
+.link-escuro {
+    color: var(--texto);
+}
+
+.nav-link:hover,
+.link-escuro:hover {
+    color: var(--destaque);
+}
+
+.btn-dark {
+    background: var(--primaria);
+    border-color: var(--primaria);
+}
+
+.btn-dark:hover {
+    background: var(--secundaria);
+    border-color: var(--secundaria);
+}
+
+.painel-inicio {
+    background: var(--superficie);
+    border: 1px solid rgba(38, 53, 45, .14);
+    box-shadow: 18px 18px 0 rgba(197, 139, 85, .22);
+}
+
+.pequeno,
+.numero {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .72rem;
+    letter-spacing: .08em;
+}
+
+.form-check-input {
+    width: 1.1rem;
+    height: 1.1rem;
+    accent-color: var(--primaria);
+}
+
+@media (max-width: 575px) {
+    .display-2 {
+        font-size: 3.5rem;
+    }
+
+    .painel-inicio {
+        box-shadow: 8px 8px 0 rgba(197, 139, 85, .22);
+    }
+}
