@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nova tarefa | Organiza+</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="estilos.css" rel="stylesheet">
+</head>
+
+<body>
+    <main class="container py-5"><a class="navbar-brand titulo" href="dashboard.html">organiza<span>+</span></a>
+        <div class="row justify-content-center py-5">
+            <div class="col-lg-7">
+                <p class="pequeno text-uppercase">Tire uma pendência da cabeça</p>
+                <h1 class="titulo mb-4">Adicionar tarefa</h1>
+                <form action="tarefas.html"><label class="form-label" for="titulo-tarefa">Título</label><input
+                        class="form-control mb-3" id="titulo-tarefa" placeholder="O que precisa ser feito?"
+                        required><label class="form-label" for="descricao">Descrição</label><textarea
+                        class="form-control mb-3" id="descricao" rows="4"
+                        placeholder="Inclua informações que ajudem você a concluir esta tarefa"></textarea>
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-4"><label class="form-label" for="lista">Lista</label><select
+                                class="form-select" id="lista">
+                                <option>Trabalho</option>
+                                <option>Estudos</option>
+                                <option>Pessoal</option>
+                            </select></div>
+                        <div class="col-md-4"><label class="form-label" for="prioridade">Prioridade</label><select
+                                class="form-select" id="prioridade">
+                                <option>Alta</option>
+                                <option>Média</option>
+                                <option>Baixa</option>
+                            </select></div>
+                        <div class="col-md-4"><label class="form-label" for="prazo">Prazo</label><input
+                                class="form-control" id="prazo" type="date"></div>
+                    </div><button class="btn btn-dark" type="submit">Adicionar tarefa</button> <a
+                        class="btn btn-link link-escuro" href="tarefas.html">Cancelar</a>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
