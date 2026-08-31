@@ -1,6 +1,11 @@
 <?php
 class AuthController
 {
+    public static function csrf(): void
+    {
+        Resposta::json(['csrf_token' => Auth::gerarCsrfToken()]);
+    }
+
     public static function registrar(): void
     {
         Auth::exigirCsrf();
