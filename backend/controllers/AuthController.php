@@ -48,4 +48,46 @@ class AuthController
         Auth::logout();
         Resposta::json(['ok' => true]);
     }
+
+    public static function solicitarRecuperacao(): void
+    {
+        Auth::exigirCsrf();
+        $dados = Requisicao::corpo();
+        $email = trim(strtolower($dados['email'] ?? ''));
+        $usuario = Usuario::buscarPorEmail($email);
+
+        $resposta = ['mensagem' => 'Se este email estiver cadastrado, enviamos um link de redefinicao.'];
+        if ($usuario) {
+            $resposta['token_demo'] = RecuperacaoSenha::criar((int) $usuario['id']);
+        }
+        Resposta::json($resposta);
+    }
+
+    public static function redefinirSenha(): void
+    {
+        Auth::exigirCsrf();
+        $dados = Requisicao::corpo();
+        $senha = $dados['senha'] ?? '';
+
+        if (strlen($senha) < 6) {
+            Resposta::erro('A nova senha deve ter pelo menos 6 caracteres.', 422);
+        }
+
+        $usuarioId = RecuperacaoSenha::consumir($dados['token'] ?? '');
+        if (!$usuarioId) {
+            Resposta::erro('Link de redefinicao invalido ou expirado.', 400);
+        }
+
+        Usuario::atualizarSenha($usuarioId, $senha);
+        Resposta::json(['ok' => true]);
+    }
+
+    public static function excluirConta(): void
+    {
+        Auth::exigirCsrf();
+        $usuario = Auth::exigirLogin();
+        Usuario::excluir((int) $usuario['id']);
+        Auth::logout();
+        Resposta::json(['ok' => true]);
+    }
 }
