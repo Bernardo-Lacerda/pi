@@ -18,11 +18,11 @@
         <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
             <div>
                 <p class="pequeno text-uppercase">Veja seus prazos de relance</p>
-                <h1 class="titulo display-6 mb-0">Junho 2018</h1>
+                <h1 class="titulo display-6 mb-0" id="titulo-calendario">Calendário</h1>
             </div>
-            <div class="btn-group flex-wrap"><button class="btn btn-outline-dark" type="button"
-                    aria-label="Mês anterior">&#8592;</button><button class="btn btn-outline-dark"
-                    type="button">Hoje</button><button class="btn btn-outline-dark" type="button"
+            <div class="btn-group flex-wrap"><button class="btn btn-outline-dark" type="button" id="btn-mes-anterior"
+                    aria-label="Mês anterior">&#8592;</button><button class="btn btn-outline-dark" id="btn-mes-hoje"
+                    type="button">Hoje</button><button class="btn btn-outline-dark" type="button" id="btn-mes-proximo"
                     aria-label="Próximo mês">&#8594;</button>
             </div>
         </div>
@@ -39,61 +39,14 @@
                         <th scope="col">Sáb</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>1</td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>5</td>
-                        <td>6</td>
-                        <td>7</td>
-                        <td>8</td>
-                        <td>9</td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                        <td>11</td>
-                        <td class="table-warning"><strong>12</strong>
-                            <div class="small text-start mt-2">Finalizar o relatório mensal</div>
-                        </td>
-                        <td>13<div class="small text-start mt-2">Estudar matemática</div>
-                        </td>
-                        <td>14</td>
-                        <td>15</td>
-                        <td>16</td>
-                    </tr>
-                    <tr>
-                        <td>17</td>
-                        <td>18</td>
-                        <td>19</td>
-                        <td>20<div class="small text-start mt-2">Preparar apresentação</div>
-                        </td>
-                        <td>21</td>
-                        <td>22</td>
-                        <td>23</td>
-                    </tr>
-                    <tr>
-                        <td>24</td>
-                        <td>25</td>
-                        <td>26</td>
-                        <td>27</td>
-                        <td>28</td>
-                        <td>29</td>
-                        <td>30</td>
-                    </tr>
-                </tbody>
+                <tbody id="corpo-calendario"></tbody>
             </table>
         </div>
     </main>
     <script src="script.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/comum.js"></script>
+    <script src="assets/js/paginas/calendario.js"></script>
 </body>
 
 </html>
