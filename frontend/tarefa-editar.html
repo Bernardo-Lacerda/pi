@@ -15,35 +15,41 @@
             <div class="col-lg-7">
                 <p class="pequeno text-uppercase">Atualize o que mudou</p>
                 <h1 class="titulo mb-4">Editar tarefa</h1>
-                <form action="tarefa-visualizar.html"><label class="form-label" for="titulo-tarefa">Título</label><input
-                        class="form-control mb-3" id="titulo-tarefa" value="Finalizar o relatório mensal"><label
+                <form id="form-tarefa"><label class="form-label" for="titulo-tarefa">Título</label><input
+                        class="form-control mb-3" id="titulo-tarefa" required><label
                         class="form-label" for="descricao">Como essa tarefa deve ser feita?</label><textarea
                         class="form-control mb-3" id="descricao"
-                        rows="4">Revisar os dados e enviar para o time.</textarea>
+                        rows="4"></textarea>
                     <div class="row g-3 mb-4">
-                        <div class="col-md-4"><label class="form-label" for="lista">Lista</label><select
+                        <div class="col-md-3"><label class="form-label" for="lista">Lista</label><select
                                 class="form-select" id="lista">
-                                <option>Trabalho</option>
+                                <option value="">Sem lista</option>
                             </select></div>
-                        <div class="col-md-4"><label class="form-label" for="prioridade">Prioridade</label><select
+                        <div class="col-md-3"><label class="form-label" for="prioridade">Prioridade</label><select
                                 class="form-select" id="prioridade">
-                                <option>Alta</option>
-                                <option>Média</option>
-                                <option>Baixa</option>
+                                <option value="alta">Alta</option>
+                                <option value="media">Média</option>
+                                <option value="baixa">Baixa</option>
                             </select></div>
-                        <div class="col-md-4"><label class="form-label" for="status">Status</label><select
+                        <div class="col-md-3"><label class="form-label" for="status">Status</label><select
                                 class="form-select" id="status">
-                                <option>Pendente</option>
-                                <option>Em andamento</option>
-                                <option>Concluída</option>
+                                <option value="pendente">Pendente</option>
+                                <option value="em_progresso">Em andamento</option>
+                                <option value="concluida">Concluída</option>
                             </select></div>
+                        <div class="col-md-3"><label class="form-label" for="prazo">Prazo</label><input
+                                class="form-control" id="prazo" type="date"></div>
                     </div><button class="btn btn-dark" type="submit">Salvar mudanças</button> <a
-                        class="btn btn-link link-escuro" href="tarefa-visualizar.html">Descartar mudanças</a>
+                        class="btn btn-link link-escuro" id="link-descartar" href="tarefas.html">Descartar mudanças</a>
                 </form>
+                <p class="mt-3 text-danger" id="mensagem-tarefa"></p>
             </div>
         </div>
     </main>
     <script src="script.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/comum.js"></script>
+    <script src="assets/js/paginas/tarefa-editar.js"></script>
 </body>
 
 </html>

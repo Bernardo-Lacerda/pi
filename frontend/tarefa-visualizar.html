@@ -12,24 +12,28 @@
 <body>
     <main class="container py-5"><a class="navbar-brand titulo" href="dashboard.html">organiza<span>+</span></a>
         <div class="row justify-content-center py-5">
-            <div class="col-lg-8">
+            <div class="col-lg-8" id="conteudo-tarefa">
                 <div class="d-flex justify-content-between align-items-start gap-3">
                     <div>
-                        <p class="pequeno text-uppercase">Trabalho · vence hoje</p>
-                        <h1 class="titulo display-6">Finalizar o relatório mensal</h1>
-                    </div><span class="badge text-bg-warning">Alta</span>
+                        <p class="pequeno text-uppercase" id="meta-tarefa">Carregando...</p>
+                        <h1 class="titulo display-6" id="titulo-tarefa"></h1>
+                    </div><span class="badge text-bg-warning" id="badge-prioridade"></span>
                 </div>
-                <p class="lead mt-4">Revisar os dados do mês e enviar a versão final para o time até 12 de junho.</p>
+                <p class="lead mt-4" id="descricao-tarefa"></p>
                 <hr class="my-5">
-                <div class="d-flex flex-wrap gap-2"><a class="btn btn-dark" href="tarefa-editar.html">Editar
-                        tarefa</a><a class="btn btn-outline-dark" href="tarefas.html">Voltar para minhas
-                        tarefas</a><button type="button" class="btn btn-outline-danger"
-                        data-confirmar="Tarefa excluída">Excluir</button>
+                <div class="d-flex flex-wrap gap-2"><a class="btn btn-dark" id="link-editar" href="#">Editar
+                        tarefa</a><button type="button" class="btn btn-outline-dark" id="btn-alternar-status"></button><a
+                        class="btn btn-outline-dark" href="tarefas.html">Voltar para minhas
+                        tarefas</a><button type="button" class="btn btn-outline-danger" id="btn-excluir">Excluir</button>
                 </div>
+                <p class="mt-3 text-danger" id="mensagem-tarefa"></p>
             </div>
         </div>
     </main>
     <script src="script.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/comum.js"></script>
+    <script src="assets/js/paginas/tarefa-visualizar.js"></script>
 </body>
 
 </html>
