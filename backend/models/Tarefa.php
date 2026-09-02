@@ -38,11 +38,11 @@ class Tarefa
         $stmt->execute([
             $dados['titulo'],
             $dados['descricao'] ?? null,
-            $dados['prazo'] ?: null,
+            !empty($dados['prazo']) ? $dados['prazo'] : null,
             $dados['prioridade'] ?? 'media',
             $status,
             $usuarioId,
-            $dados['lista_id'] ?: null,
+            !empty($dados['lista_id']) ? $dados['lista_id'] : null,
             $status === 'concluida' ? date('Y-m-d H:i:s') : null,
         ]);
         return (int) $pdo->lastInsertId();
@@ -58,10 +58,10 @@ class Tarefa
         $stmt->execute([
             $dados['titulo'],
             $dados['descricao'] ?? null,
-            $dados['prazo'] ?: null,
+            !empty($dados['prazo']) ? $dados['prazo'] : null,
             $dados['prioridade'] ?? 'media',
             $status,
-            $dados['lista_id'] ?: null,
+            !empty($dados['lista_id']) ? $dados['lista_id'] : null,
             $status === 'concluida' ? date('Y-m-d H:i:s') : null,
             $id,
             $usuarioId,
