@@ -15,7 +15,7 @@
             <div class="col-lg-7">
                 <p class="pequeno text-uppercase">Tire uma pendência da cabeça</p>
                 <h1 class="titulo mb-4">Adicionar tarefa</h1>
-                <form action="tarefas.html"><label class="form-label" for="titulo-tarefa">Título</label><input
+                <form id="form-tarefa" action="tarefas.html"><label class="form-label" for="titulo-tarefa">Título</label><input
                         class="form-control mb-3" id="titulo-tarefa" placeholder="O que precisa ser feito?"
                         required><label class="form-label" for="descricao">Descrição</label><textarea
                         class="form-control mb-3" id="descricao" rows="4"
@@ -23,15 +23,13 @@
                     <div class="row g-3 mb-4">
                         <div class="col-md-4"><label class="form-label" for="lista">Lista</label><select
                                 class="form-select" id="lista">
-                                <option>Trabalho</option>
-                                <option>Estudos</option>
-                                <option>Pessoal</option>
+                                <option value="">Sem lista</option>
                             </select></div>
                         <div class="col-md-4"><label class="form-label" for="prioridade">Prioridade</label><select
                                 class="form-select" id="prioridade">
-                                <option>Alta</option>
-                                <option>Média</option>
-                                <option>Baixa</option>
+                                <option value="alta">Alta</option>
+                                <option value="media" selected>Média</option>
+                                <option value="baixa">Baixa</option>
                             </select></div>
                         <div class="col-md-4"><label class="form-label" for="prazo">Prazo</label><input
                                 class="form-control" id="prazo" type="date"></div>
@@ -42,6 +40,9 @@
         </div>
     </main>
     <script src="script.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/comum.js"></script>
+    <script src="assets/js/paginas/tarefa-form.js"></script>
 </body>
 
 </html>

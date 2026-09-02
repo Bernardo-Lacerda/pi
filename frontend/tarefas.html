@@ -27,57 +27,29 @@
         <div class="row g-2 mb-4">
             <div class="col-md-4"><label class="form-label visually-hidden" for="filtro-status">Filtrar por
                     status</label><select class="form-select" id="filtro-status" name="status">
-                    <option>Filtrar por status</option>
-                    <option>Pendente</option>
-                    <option>Em andamento</option>
+                    <option value="">Filtrar por status</option>
+                    <option value="pendente">Pendente</option>
+                    <option value="em_progresso">Em andamento</option>
+                    <option value="concluida">Concluída</option>
                 </select></div>
             <div class="col-md-4"><label class="form-label visually-hidden" for="filtro-lista">Filtrar por
                     lista</label><select class="form-select" id="filtro-lista" name="lista">
-                    <option>Filtrar por lista</option>
-                    <option>Trabalho</option>
-                    <option>Estudos</option>
+                    <option value="">Filtrar por lista</option>
                 </select></div>
             <div class="col-md-4"><label class="form-label visually-hidden" for="filtro-prioridade">Filtrar por
                     prioridade</label><select class="form-select" id="filtro-prioridade" name="prioridade">
-                    <option>Filtrar por prioridade</option>
-                    <option>Alta</option>
-                    <option>Média</option>
-                    <option>Baixa</option>
+                    <option value="">Filtrar por prioridade</option>
+                    <option value="alta">Alta</option>
+                    <option value="media">Média</option>
+                    <option value="baixa">Baixa</option>
                 </select></div>
         </div>
-        <div class="list-group"><a href="tarefa-visualizar.html" class="list-group-item list-group-item-action py-3">
-                <div class="row align-items-center">
-                    <div class="col-md-6"><strong>Finalizar o relatório mensal</strong>
-                        <div class="text-secondary small">Trabalho · 12 de junho</div>
-                    </div>
-                    <div class="col-md-3"><span class="badge text-bg-warning">Alta</span> <span
-                            class="badge text-bg-light">Pendente</span></div>
-                    <div class="col-md-3 text-md-end mt-2 mt-md-0"><span class="link-escuro">Abrir tarefa &#8594;</span>
-                    </div>
-                </div>
-            </a><a href="tarefa-visualizar.html" class="list-group-item list-group-item-action py-3">
-                <div class="row align-items-center">
-                    <div class="col-md-6"><strong>Estudar matemática</strong>
-                        <div class="text-secondary small">Estudos · 13 de junho</div>
-                    </div>
-                    <div class="col-md-3"><span class="badge text-bg-light">Média</span> <span
-                            class="badge text-bg-info">Em andamento</span></div>
-                    <div class="col-md-3 text-md-end mt-2 mt-md-0"><span class="link-escuro">Abrir tarefa &#8594;</span>
-                    </div>
-                </div>
-            </a><a href="tarefa-visualizar.html" class="list-group-item list-group-item-action py-3">
-                <div class="row align-items-center">
-                    <div class="col-md-6"><strong>Preparar apresentação</strong>
-                        <div class="text-secondary small">Trabalho · 20 de junho</div>
-                    </div>
-                    <div class="col-md-3"><span class="badge text-bg-light">Baixa</span> <span
-                            class="badge text-bg-light">Pendente</span></div>
-                    <div class="col-md-3 text-md-end mt-2 mt-md-0"><span class="link-escuro">Abrir tarefa &#8594;</span>
-                    </div>
-                </div>
-            </a></div>
+        <div class="list-group" id="lista-tarefas"></div>
     </main>
     <script src="script.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/comum.js"></script>
+    <script src="assets/js/paginas/tarefas.js"></script>
 </body>
 
 </html>
