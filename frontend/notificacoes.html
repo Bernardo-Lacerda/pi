@@ -15,27 +15,21 @@
                 class="link-escuro" href="dashboard.html">Dashboard</a></div>
     </nav>
     <main class="container py-5">
-        <p class="pequeno text-uppercase">O que merece sua atenção</p>
-        <h1 class="titulo display-6 mb-5">Avisos</h1>
+        <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-5">
+            <div>
+                <p class="pequeno text-uppercase">O que merece sua atenção</p>
+                <h1 class="titulo display-6 mb-0">Avisos</h1>
+            </div><button type="button" class="btn btn-link link-escuro px-0" id="btn-marcar-todas">Marcar todas como
+                lidas</button>
+        </div>
         <div class="row">
-            <div class="col-12 col-lg-8">
-                <div class="border-bottom py-4"><span class="badge text-bg-warning mb-2">Prazo de hoje</span>
-                    <h2 class="h5 titulo">A tarefa “Finalizar o relatório mensal” está na sua agenda para hoje.</h2>
-                    <small class="text-secondary">Há 2
-                        horas</small>
-                </div>
-                <div class="border-bottom py-4"><span class="badge text-bg-light mb-2">Tarefas pendentes</span>
-                    <h2 class="h5 titulo">Você ainda tem 7 tarefas pendentes.</h2><small
-                        class="text-secondary">Ontem</small>
-                </div>
-                <div class="border-bottom py-4"><span class="badge text-bg-success mb-2">Resumo do dia</span>
-                    <h2 class="h5 titulo">Você concluiu 4 tarefas hoje. Bom trabalho.</h2><small
-                        class="text-secondary">Ontem</small>
-                </div>
-            </div>
+            <div class="col-12 col-lg-8" id="lista-notificacoes"></div>
         </div>
     </main>
     <script src="script.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/comum.js"></script>
+    <script src="assets/js/paginas/notificacoes.js"></script>
 </body>
 
 </html>
