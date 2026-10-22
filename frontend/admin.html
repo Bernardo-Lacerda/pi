@@ -15,31 +15,10 @@
             <div>
                 <p class="pequeno text-uppercase">Acompanhe a operação</p>
                 <h1 class="titulo display-6 mb-0">Painel administrativo</h1>
-            </div><span class="badge text-bg-success">Operação normal</span>
-        </div>
-        <div class="row g-3 mb-5">
-            <div class="col-md-3">
-                <div class="border-top pt-3"><span class="pequeno">USUÁRIOS</span>
-                    <div class="h2 titulo">1.248</div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="border-top pt-3"><span class="pequeno">USUÁRIOS ATIVOS</span>
-                    <div class="h2 titulo">842</div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="border-top pt-3"><span class="pequeno">TAREFAS</span>
-                    <div class="h2 titulo">3.721</div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="border-top pt-3"><span class="pequeno">CONCLUÍDAS</span>
-                    <div class="h2 titulo">2.918</div>
-                </div>
             </div>
         </div><label class="form-label visually-hidden" for="busca-usuario">Buscar usuário</label><input
             id="busca-usuario" name="busca" class="form-control mb-3" placeholder="Buscar por nome ou email">
+        <p class="text-danger" id="mensagem-admin"></p>
         <div class="table-responsive">
             <table class="table align-middle">
                 <thead>
@@ -50,24 +29,14 @@
                         <th scope="col">Ação</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>Marina Costa</td>
-                        <td>marina.costa@email.com</td>
-                        <td><span class="badge text-bg-success">Conta ativa</span></td>
-                        <td><button type="button" class="btn btn-sm btn-outline-dark">Visualizar</button></td>
-                    </tr>
-                    <tr>
-                        <td>Rafael Mendes</td>
-                        <td>rafael.mendes@email.com</td>
-                        <td><span class="badge text-bg-success">Conta ativa</span></td>
-                        <td><button type="button" class="btn btn-sm btn-outline-dark">Visualizar</button></td>
-                    </tr>
-                </tbody>
+                <tbody id="tabela-usuarios"></tbody>
             </table>
         </div>
     </main>
     <script src="script.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/comum.js"></script>
+    <script src="assets/js/paginas/admin.js"></script>
 </body>
 
 </html>
