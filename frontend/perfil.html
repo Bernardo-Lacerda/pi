@@ -20,21 +20,24 @@
         <div class="row g-5">
             <div class="col-lg-4">
                 <div class="rounded-circle bg-dark text-white d-flex align-items-center justify-content-center"
-                    style="width: 96px; height: 96px; font-size: 2rem;">MC</div>
-                <h2 class="h4 titulo mt-3">Marina Costa</h2>
-                <p class="text-secondary">marina.costa@email.com</p>
+                    style="width: 96px; height: 96px; font-size: 2rem;" id="avatar-iniciais"></div>
+                <h2 class="h4 titulo mt-3" id="exibir-nome"></h2>
+                <p class="text-secondary" id="exibir-email"></p>
             </div>
             <div class="col-lg-6">
-                <form><label class="form-label" for="nome">Como você quer ser chamado?</label><input
-                        class="form-control mb-3" id="nome" value="Marina Costa"><label class="form-label"
-                        for="email">Email</label><input class="form-control mb-4" id="email"
-                        value="marina.costa@email.com"><button class="btn btn-dark" type="button"
-                        data-confirmar="Suas informações foram atualizadas.">Salvar mudanças</button></form>
-                <hr class="my-5"><a class="link-danger" href="logout.html">Sair do Organiza+</a>
+                <form id="form-perfil"><label class="form-label" for="nome">Como você quer ser chamado?</label><input
+                        class="form-control mb-3" id="nome" required><label class="form-label"
+                        for="email">Email</label><input class="form-control mb-4" id="email" type="email"
+                        required><button class="btn btn-dark" type="submit">Salvar mudanças</button></form>
+                <hr class="my-5"><a class="link-escuro d-block mb-3" href="logout.html">Sair do Organiza+</a><button
+                    type="button" class="btn btn-outline-danger" id="btn-excluir-conta">Excluir minha conta</button>
             </div>
         </div>
     </main>
     <script src="script.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/comum.js"></script>
+    <script src="assets/js/paginas/perfil.js"></script>
 </body>
 
 </html>
