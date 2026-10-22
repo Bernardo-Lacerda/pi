@@ -13,31 +13,31 @@
     <nav class="navbar border-bottom">
         <div class="container"><a class="navbar-brand titulo" href="dashboard.html">organiza<span>+</span></a>
             <div class="d-flex gap-3 align-items-center"><a class="link-escuro"
-                    href="notificacoes.html">Notificações</a><a class="btn btn-sm btn-dark" href="perfil.html">Marina
-                    Costa</a></div>
+                    href="notificacoes.html">Notificações</a><a class="btn btn-sm btn-dark" href="perfil.html"
+                    id="link-nome-usuario">Perfil</a></div>
         </div>
     </nav>
     <main class="container py-5">
         <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-5">
             <div>
-                <p class="pequeno text-uppercase">terça-feira, 12 de junho</p>
-                <h1 class="titulo display-6 mb-0">Bom dia, Marina. Veja o que merece atenção hoje.</h1>
+                <p class="pequeno text-uppercase" id="data-hoje"></p>
+                <h1 class="titulo display-6 mb-0" id="saudacao">Bem-vindo. Veja o que merece atenção hoje.</h1>
             </div><a class="btn btn-dark" href="tarefa-criar.html">Adicionar tarefa</a>
         </div>
         <div class="row g-3 mb-5">
             <div class="col-sm-4">
                 <div class="border-top pt-3"><span class="pequeno">PENDENTES</span>
-                    <div class="display-5 titulo">07</div>
+                    <div class="display-5 titulo" id="contagem-pendentes">0</div>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="border-top pt-3"><span class="pequeno">EM ANDAMENTO</span>
-                    <div class="display-5 titulo">05</div>
+                    <div class="display-5 titulo" id="contagem-andamento">0</div>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="border-top pt-3"><span class="pequeno">CONCLUÍDAS</span>
-                    <div class="display-5 titulo">12</div>
+                    <div class="display-5 titulo" id="contagem-concluidas">0</div>
                 </div>
             </div>
         </div>
@@ -47,20 +47,7 @@
                     <h2 class="h4 titulo mb-0">Próximos prazos</h2><a class="link-escuro" href="tarefas.html">Ver todas
                         as tarefas</a>
                 </div>
-                <div class="list-group"><a href="tarefa-visualizar.html"
-                        class="list-group-item list-group-item-action py-3">
-                        <div class="d-flex justify-content-between"><strong>Finalizar o relatório mensal</strong><span
-                                class="badge text-bg-warning">Alta</span></div><small class="text-secondary">Trabalho ·
-                            vence hoje</small>
-                    </a><a href="tarefa-visualizar.html" class="list-group-item list-group-item-action py-3">
-                        <div class="d-flex justify-content-between"><strong>Planejar próxima semana</strong><span
-                                class="badge text-bg-light">Média</span></div><small class="text-secondary">Pessoal ·
-                            vence hoje</small>
-                    </a><a href="tarefa-visualizar.html" class="list-group-item list-group-item-action py-3">
-                        <div class="d-flex justify-content-between"><strong>Estudar matemática</strong><span
-                                class="badge text-bg-light">Média</span></div><small class="text-secondary">Estudos ·
-                            vence amanhã</small>
-                    </a></div>
+                <div class="list-group" id="lista-prazos"></div>
             </section>
             <aside class="col-lg-5">
                 <h2 class="h4 titulo mb-3">Atalhos</h2>
@@ -73,6 +60,9 @@
         </div>
     </main>
     <script src="script.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/comum.js"></script>
+    <script src="assets/js/paginas/dashboard.js"></script>
 </body>
 
 </html>
