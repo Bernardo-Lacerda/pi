@@ -35,8 +35,13 @@ class TarefaController
         Auth::exigirCsrf();
         $dados = Requisicao::corpo();
         self::validar($dados);
+        $tarefaAnterior = Tarefa::buscarPorId($id, (int) $usuario['id']);
         if (!Tarefa::atualizar($id, (int) $usuario['id'], $dados)) {
             Resposta::erro('Tarefa nao encontrada.', 404);
+        }
+        $status = $dados['status'] ?? 'pendente';
+        if ($status === 'concluida' && $tarefaAnterior && $tarefaAnterior['status'] !== 'concluida') {
+            Notificacao::criar((int) $usuario['id'], 'Tarefa concluida', $tarefaAnterior['titulo'], 'conclusao');
         }
         Resposta::json(['tarefa' => Tarefa::buscarPorId($id, (int) $usuario['id'])]);
     }
@@ -49,8 +54,12 @@ class TarefaController
         if (!in_array($status, ['pendente', 'em_progresso', 'concluida'], true)) {
             Resposta::erro('Status invalido.', 422);
         }
+        $tarefaAnterior = Tarefa::buscarPorId($id, (int) $usuario['id']);
         if (!Tarefa::atualizarStatus($id, (int) $usuario['id'], $status)) {
             Resposta::erro('Tarefa nao encontrada.', 404);
+        }
+        if ($status === 'concluida' && $tarefaAnterior && $tarefaAnterior['status'] !== 'concluida') {
+            Notificacao::criar((int) $usuario['id'], 'Tarefa concluida', $tarefaAnterior['titulo'], 'conclusao');
         }
         Resposta::json(['ok' => true]);
     }
