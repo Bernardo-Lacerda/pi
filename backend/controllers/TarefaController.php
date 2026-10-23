@@ -70,5 +70,8 @@ class TarefaController
         if (trim($dados['titulo'] ?? '') === '') {
             Resposta::erro('O titulo da tarefa e obrigatorio.', 422);
         }
+        if (isset($dados['status']) && !in_array($dados['status'], ['pendente', 'em_progresso', 'concluida'], true)) {
+            Resposta::erro('Status invalido.', 422);
+        }
     }
 }
