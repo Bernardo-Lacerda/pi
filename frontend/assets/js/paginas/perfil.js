@@ -18,13 +18,6 @@ document.addEventListener('DOMContentLoaded', async function () {
         document.querySelector('#avatar-iniciais').textContent = iniciais(usuario.nome);
     }
 
-    try {
-        const dados = await OrganizaAPI.get('/perfil');
-        preencher(dados.usuario);
-    } catch (erro) {
-        OrganizaUI.mostrarMensagem(form, erro.message, 'erro');
-    }
-
     form.addEventListener('submit', async function (evento) {
         evento.preventDefault();
         const nome = document.querySelector('#nome').value.trim();
@@ -38,6 +31,27 @@ document.addEventListener('DOMContentLoaded', async function () {
         }
     });
 
+    const formSenha = document.querySelector('#form-senha');
+    if (formSenha) {
+        formSenha.addEventListener('submit', async function (evento) {
+            evento.preventDefault();
+            const senhaAtual = document.querySelector('#senha-atual').value;
+            const senhaNova = document.querySelector('#senha').value;
+            const confirmar = document.querySelector('#confirmar').value;
+            if (senhaNova !== confirmar) {
+                OrganizaUI.mostrarMensagem(formSenha, 'As senhas nao coincidem.', 'erro');
+                return;
+            }
+            try {
+                await OrganizaAPI.put('/perfil/senha', { senha_atual: senhaAtual, senha_nova: senhaNova });
+                formSenha.reset();
+                OrganizaUI.mostrarMensagem(formSenha, 'Sua senha foi atualizada.', 'sucesso');
+            } catch (erro) {
+                OrganizaUI.mostrarMensagem(formSenha, erro.message, 'erro');
+            }
+        });
+    }
+
     document.querySelector('#btn-excluir-conta').addEventListener('click', async function () {
         if (!window.confirm('Tem certeza que deseja excluir sua conta? Esta ação não pode ser desfeita.')) {
             return;
@@ -49,4 +63,11 @@ document.addEventListener('DOMContentLoaded', async function () {
             OrganizaUI.mostrarMensagem(form, erro.message, 'erro');
         }
     });
+
+    try {
+        const dados = await OrganizaAPI.get('/perfil');
+        preencher(dados.usuario);
+    } catch (erro) {
+        OrganizaUI.mostrarMensagem(form, erro.message, 'erro');
+    }
 });
