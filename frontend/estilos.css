@@ -40,11 +40,15 @@ body {
 .nav-link,
 .link-escuro {
     color: var(--texto);
+    padding-bottom: .2rem;
+    border-bottom: 1px solid transparent;
+    transition: color .15s ease, border-color .15s ease;
 }
 
 .nav-link:hover,
 .link-escuro:hover {
     color: var(--destaque);
+    border-color: var(--destaque);
 }
 
 .btn-dark {
@@ -74,6 +78,57 @@ body {
     width: 1.1rem;
     height: 1.1rem;
     accent-color: var(--primaria);
+}
+
+#grafico-semanal {
+    align-items: stretch;
+}
+
+.coluna-semana {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+    height: 100%;
+}
+
+.barra-semana {
+    width: 100%;
+    background: var(--primaria);
+    border-radius: .35rem .35rem 0 0;
+    min-height: 4px;
+    transition: height .2s ease;
+}
+
+html[data-bs-theme="dark"] .barra-semana {
+    background: var(--destaque);
+}
+
+html[data-bs-theme="dark"] {
+    --primaria: #4F6B59;
+    --secundaria: #7C9484;
+    --fundo: #1C211D;
+    --superficie: #262C27;
+    --texto: #ECEFE9;
+    --suave: #9AA296;
+    --destaque: #D9A571;
+}
+
+html[data-bs-theme="dark"] .painel-inicio {
+    border-color: rgba(236, 239, 233, .14);
+    box-shadow: 18px 18px 0 rgba(217, 165, 113, .18);
+}
+
+html[data-bs-theme="dark"] .btn-outline-dark {
+    color: var(--texto);
+    border-color: var(--secundaria);
+}
+
+html[data-bs-theme="dark"] .btn-outline-dark:hover {
+    color: #fff;
+    background: var(--primaria);
+    border-color: var(--primaria);
 }
 
 @media (max-width: 575px) {

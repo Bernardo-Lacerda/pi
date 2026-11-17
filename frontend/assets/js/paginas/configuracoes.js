@@ -5,6 +5,20 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
     const resumo = document.querySelector('#resumo');
     const mensagem = document.querySelector('#mensagem-preferencias');
+    const modoEscuro = document.querySelector('#modo-escuro');
+
+    if (modoEscuro) {
+        modoEscuro.checked = localStorage.getItem('organiza-tema') === 'escuro';
+        modoEscuro.addEventListener('change', function () {
+            if (modoEscuro.checked) {
+                document.documentElement.setAttribute('data-bs-theme', 'dark');
+                localStorage.setItem('organiza-tema', 'escuro');
+            } else {
+                document.documentElement.removeAttribute('data-bs-theme');
+                localStorage.setItem('organiza-tema', 'claro');
+            }
+        });
+    }
 
     try {
         const dados = await OrganizaAPI.get('/perfil');

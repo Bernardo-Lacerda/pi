@@ -19,3 +19,20 @@ window.OrganizaUI = {
         return div.innerHTML;
     },
 };
+
+document.addEventListener('DOMContentLoaded', async function () {
+    const linksAdmin = document.querySelectorAll('.nav-admin');
+    if (linksAdmin.length === 0) {
+        return;
+    }
+    try {
+        const dados = await OrganizaAPI.get('/perfil');
+        if (dados.usuario.tipo_usuario === 'admin') {
+            linksAdmin.forEach(function (link) {
+                link.classList.remove('d-none');
+            });
+        }
+    } catch (erro) {
+        // usuario nao autenticado: links de administracao continuam escondidos
+    }
+});
