@@ -20,9 +20,15 @@ class Notificacao
 
     public static function marcarComoLida(int $id, int $usuarioId): bool
     {
-        $stmt = Database::conectar()->prepare('UPDATE notificacoes SET lida = 1 WHERE id = ? AND usuario_id = ?');
+        $pdo = Database::conectar();
+        $stmt = $pdo->prepare('UPDATE notificacoes SET lida = 1 WHERE id = ? AND usuario_id = ?');
         $stmt->execute([$id, $usuarioId]);
-        return $stmt->rowCount() > 0;
+        if ($stmt->rowCount() > 0) {
+            return true;
+        }
+        $verificar = $pdo->prepare('SELECT 1 FROM notificacoes WHERE id = ? AND usuario_id = ?');
+        $verificar->execute([$id, $usuarioId]);
+        return (bool) $verificar->fetchColumn();
     }
 
     public static function marcarTodasComoLidas(int $usuarioId): void

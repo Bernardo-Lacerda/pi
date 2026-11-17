@@ -66,7 +66,10 @@ class Tarefa
             $id,
             $usuarioId,
         ]);
-        return $stmt->rowCount() > 0;
+        if ($stmt->rowCount() > 0) {
+            return true;
+        }
+        return self::buscarPorId($id, $usuarioId) !== null;
     }
 
     public static function atualizarStatus(int $id, int $usuarioId, string $status): bool
@@ -76,7 +79,10 @@ class Tarefa
             'UPDATE tarefas SET status = ?, concluida_em = ? WHERE id = ? AND usuario_id = ?'
         );
         $stmt->execute([$status, $concluidaEm, $id, $usuarioId]);
-        return $stmt->rowCount() > 0;
+        if ($stmt->rowCount() > 0) {
+            return true;
+        }
+        return self::buscarPorId($id, $usuarioId) !== null;
     }
 
     public static function excluir(int $id, int $usuarioId): bool

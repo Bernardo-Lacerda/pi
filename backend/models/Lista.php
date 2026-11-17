@@ -39,7 +39,10 @@ class Lista
     {
         $stmt = Database::conectar()->prepare('UPDATE listas SET nome = ? WHERE id = ? AND usuario_id = ?');
         $stmt->execute([$nome, $id, $usuarioId]);
-        return $stmt->rowCount() > 0;
+        if ($stmt->rowCount() > 0) {
+            return true;
+        }
+        return self::buscarPorId($id, $usuarioId) !== null;
     }
 
     public static function excluir(int $id, int $usuarioId): bool
