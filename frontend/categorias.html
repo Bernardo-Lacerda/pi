@@ -10,16 +10,12 @@
 </head>
 
 <body>
-    <nav class="navbar border-bottom">
-        <div class="container"><a class="navbar-brand titulo" href="dashboard.html">organiza<span>+</span></a><a
-                class="btn btn-sm btn-dark" href="tarefas.html">Ver tarefas</a></div>
-    </nav>
     <main class="container py-5">
         <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-5">
             <div>
                 <p class="pequeno text-uppercase">Cada assunto no seu lugar</p>
                 <h1 class="titulo display-6 mb-0">Minhas listas</h1>
-            </div><button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modal-lista">Criar lista</button>
+            </div><button class="btn btn-dark" id="btn-abrir-criar-lista" data-bs-toggle="modal" data-bs-target="#modal-lista">Criar lista</button>
         </div>
         <div class="row g-4" id="lista-categorias"></div>
     </main>
@@ -30,10 +26,10 @@
                     <h2 class="modal-title h5 titulo" id="titulo-modal-lista">Criar uma nova lista</h2><button
                         type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
-                <div class="modal-body"><label class="form-label" for="nome-lista">Nome da lista</label><input
+                <div class="modal-body"><input type="hidden" id="lista-id"><label class="form-label" for="nome-lista">Nome da lista</label><input
                         class="form-control" id="nome-lista" name="nome" placeholder="Ex.: Casa, faculdade ou projeto">
                 </div>
-                <div class="modal-footer"><button type="button" id="btn-criar-lista" class="btn btn-dark" data-bs-dismiss="modal">Criar
+                <div class="modal-footer"><button type="button" id="btn-salvar-lista" class="btn btn-dark">Criar
                         lista</button>
                 </div>
             </div>
