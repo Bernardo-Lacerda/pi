@@ -1,0 +1,50 @@
+flowchart LR
+    Visitante(["Visitante"])
+    Usuario(["Usuário Autenticado"])
+    Admin(["Administrador"])
+
+    subgraph Acesso["Acesso ao sistema"]
+        UC01(["Cadastrar-se"])
+        UC02(["Entrar (login)"])
+        UC03(["Recuperar senha"])
+        UC04(["Redefinir senha"])
+    end
+
+    subgraph Tarefas["Gestão de tarefas"]
+        UC05(["Criar tarefa"])
+        UC06(["Visualizar tarefa"])
+        UC07(["Editar tarefa"])
+        UC08(["Excluir tarefa"])
+        UC09(["Concluir / reabrir tarefa"])
+    end
+
+    subgraph Conta["Conta do usuário"]
+        UC10(["Editar perfil"])
+        UC11(["Alterar senha"])
+        UC12(["Excluir conta"])
+        UC13(["Sair (logout)"])
+    end
+
+    subgraph Administracao["Administração"]
+        UC14(["Listar e buscar usuários"])
+        UC15(["Remover usuário"])
+    end
+
+    Visitante --> UC01
+    Visitante --> UC02
+    Visitante --> UC03
+    Visitante --> UC04
+
+    Usuario --> UC05
+    Usuario --> UC06
+    Usuario --> UC07
+    Usuario --> UC08
+    Usuario --> UC09
+    Usuario --> UC10
+    Usuario --> UC11
+    Usuario --> UC12
+    Usuario --> UC13
+
+    Admin --> UC14
+    Admin --> UC15
+    Admin -. também realiza tudo que o .-> Usuario

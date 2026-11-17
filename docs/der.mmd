@@ -1,0 +1,59 @@
+erDiagram
+    USUARIOS ||--o{ LISTAS : possui
+    USUARIOS ||--o{ TAREFAS : possui
+    USUARIOS ||--o{ NOTIFICACOES : recebe
+    USUARIOS ||--o{ RECUPERACOES_SENHA : solicita
+    LISTAS ||--o{ TAREFAS : agrupa
+
+    USUARIOS {
+        int id PK
+        varchar nome
+        varchar email UK
+        varchar senha
+        enum tipo_usuario
+        boolean ativo
+        boolean notificar_prazos
+        boolean resumo_diario
+        timestamp criado_em
+        timestamp atualizado_em
+    }
+
+    LISTAS {
+        int id PK
+        varchar nome
+        int usuario_id FK
+        timestamp criado_em
+    }
+
+    TAREFAS {
+        int id PK
+        varchar titulo
+        text descricao
+        date prazo
+        enum prioridade
+        enum status
+        int usuario_id FK
+        int lista_id FK
+        datetime concluida_em
+        timestamp criado_em
+        timestamp atualizado_em
+    }
+
+    NOTIFICACOES {
+        int id PK
+        int usuario_id FK
+        varchar titulo
+        text descricao
+        enum tipo
+        boolean lida
+        timestamp criado_em
+    }
+
+    RECUPERACOES_SENHA {
+        int id PK
+        int usuario_id FK
+        varchar token_hash UK
+        datetime expira_em
+        datetime usado_em
+        timestamp criado_em
+    }
