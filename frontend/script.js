@@ -9,7 +9,7 @@ if (!document.querySelector('nav')) {
     }
     var navegacao = document.createElement('nav');
     navegacao.className = 'navbar border-bottom mb-4';
-    navegacao.innerHTML = '<div class="container d-flex flex-wrap align-items-center gap-3"><a class="navbar-brand titulo me-auto" href="index.html">organiza<span>+</span></a><div class="navbar-nav flex-row flex-wrap gap-4"><a class="nav-link" href="dashboard.html">Dashboard</a><a class="nav-link" href="tarefas.html">Tarefas</a><a class="nav-link" href="categorias.html">Listas</a><a class="nav-link" href="calendario.html">Calendário</a><a class="nav-link" href="notificacoes.html">Notificações</a><a class="nav-link" href="perfil.html" id="link-nome-usuario">Perfil</a><a class="nav-link nav-admin d-none" href="admin.html">Administração</a><a class="nav-link" href="index.html">Início</a></div></div>';
+    navegacao.innerHTML = '<div class="container d-flex flex-wrap align-items-center gap-3"><a class="navbar-brand titulo me-auto" href="index.html">organiza<span>+</span></a><div class="navbar-nav flex-row flex-wrap gap-4"><a class="nav-link" href="dashboard.html">Dashboard</a><a class="nav-link" href="tarefas.html">Tarefas</a><a class="nav-link" href="categorias.html">Listas</a><a class="nav-link" href="calendario.html">Calendário</a><a class="nav-link" href="notificacoes.html">Notificações</a><a class="nav-link" href="perfil.html" id="link-nome-usuario">Perfil</a><a class="nav-link" href="configuracoes.html">Configurações</a><a class="nav-link nav-admin d-none" href="admin.html">Administração</a><a class="nav-link" href="index.html">Início</a></div></div>';
     document.body.prepend(navegacao);
 }
 
